@@ -22,5 +22,33 @@ Park.prototype.mostPopularDinosaur = function () {
   return this.collectionOfDinosaurs[0];
 };
 
+Park.prototype.findBySpecies = function (species) {
+  speciesArray = [];
+  for (dinosaur of this.collectionOfDinosaurs) {
+  if (dinosaur.species === species) {
+      speciesArray.push(dinosaur)
+    }
+  return speciesArray
+  };
+};
+
+Park.prototype.totalGuestsPerDay = function () {
+  total = 0
+  for (let dinosaur of this.collectionOfDinosaurs) {
+    total += dinosaur.guestsAttractedPerDay
+  }
+  return total
+};
+
+Park.prototype.totalGuestsPerYear = function () {
+  totalPerDay = this.totalGuestsPerDay();
+  return totalPerYear = totalPerDay * 365;
+};
+
+Park.prototype.totalRevenuePerYear = function () {
+  let totalPerYear = this.totalGuestsPerYear();
+  return totalRevenue = totalPerYear * this.ticketPrice;
+};
+
 
 module.exports = Park;
