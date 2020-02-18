@@ -1,7 +1,7 @@
-const Park = function (name, ticketPrice, collectionOfDinosaurs){
+const Park = function (name, ticketPrice){
   this.name = name;
   this.ticketPrice = ticketPrice;
-  this.collectionOfDinosaurs = collectionOfDinosaurs;
+  this.collectionOfDinosaurs = [];
 }
 
-module.export = Park;
+module.exports = Park;
