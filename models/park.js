@@ -1,30 +1,30 @@
-const Park = function (name, ticketPrice){
+const Park = function (name, ticketPrice, parkDinosaurs){
   this.name = name;
   this.ticketPrice = ticketPrice;
-  this.collectionOfDinosaurs = [];
+  this.parkDinosaurs = parkDinosaurs;
 }
 
 Park.prototype.totalDinosaurs = function () {
-  return this.collectionOfDinosaurs.length;
+  return this.parkDinosaurs.length;
 };
 
 Park.prototype.addDinosaur = function (dinosaur) {
-  this.collectionOfDinosaurs.push(dinosaur);
+  this.parkDinosaurs.push(dinosaur);
 };
 
 Park.prototype.removeDinosaur = function (dinosaur) {
-  this.collectionOfDinosaurs.pop(dinosaur)
+  this.parkDinosaurs.pop(dinosaur)
 };
 
 Park.prototype.mostPopularDinosaur = function () {
-  this.collectionOfDinosaurs.sort((a,b) =>
+  this.parkDinosaurs.sort((a,b) =>
   (a.guestsAttractedPerDay > b.guestsAttractedPerDay) ? -1 : 1);
-  return this.collectionOfDinosaurs[0];
+  return this.parkDinosaurs[0];
 };
 
 Park.prototype.findBySpecies = function (species) {
   speciesArray = [];
-  for (dinosaur of this.collectionOfDinosaurs) {
+  for (dinosaur of this.parkDinosaurs) {
   if (dinosaur.species === species) {
       speciesArray.push(dinosaur)
     }
@@ -34,7 +34,7 @@ Park.prototype.findBySpecies = function (species) {
 
 Park.prototype.totalGuestsPerDay = function () {
   total = 0
-  for (let dinosaur of this.collectionOfDinosaurs) {
+  for (let dinosaur of this.parkDinosaurs) {
     total += dinosaur.guestsAttractedPerDay
   }
   return total
