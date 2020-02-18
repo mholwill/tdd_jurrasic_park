@@ -32,12 +32,18 @@ describe('Park', function() {
   });
 
   it('should be able to add a dinosaur to its collection', function(){
-    const addDinosaur = park.collectionOfDinosaurs.push(dinosaur1);
-    const actual = park.collectionOfDinosaurs;
-    assert.deepStrictEqual(actual, addDinosaur);
+    park.addDinosaur(dinosaur1);
+    const actual = park.totalDinosaurs();
+    assert.deepStrictEqual(actual, 1);
   });
 
-  xit('should be able to remove a dinosaur from its collection');
+  it('should be able to remove a dinosaur from its collection', function(){
+    park.addDinosaur(dinosaur1);
+    park.addDinosaur(dinosaur2);
+    park.removeDinosaur(dinosaur1);
+    const actual = park.totalDinosaurs();
+    assert.deepStrictEqual(actual, 1);
+  });
 
   xit('should be able to find the dinosaur that attracts the most visitors');
 
