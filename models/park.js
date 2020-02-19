@@ -14,12 +14,20 @@ Park.prototype.addDinosaur = function (dinosaur) {
 
 Park.prototype.removeDinosaur = function (dinosaur) {
   this.parkDinosaurs.pop(dinosaur)
+  // Zsolts Solution:
+  //indexOf is a method that helps find the index of the item int he array. USE SPLICE next time!
+  // const indexOfDino = this.parkDinosaurs.indexOf(dinosaur);
+  // this.parkDinosaurs.splice(indexOfDino, 1);
 };
 
 Park.prototype.mostPopularDinosaur = function () {
-  this.parkDinosaurs.sort((a,b) =>
-  (a.guestsAttractedPerDay > b.guestsAttractedPerDay) ? -1 : 1);
-  return this.parkDinosaurs[0];
+  let mostPopularDinosaur = this.parkDinosaurs[0];
+  for (let dinosaur of this.parkDinosaurs) {
+    if (mostPopularDinosaur.guestsAttractedPerDay < dinosaur.guestsAttractedPerDay) {
+      mostPopularDinosaur = dinosaur;
+    }
+  }
+  return mostPopularDinosaur;
 };
 
 Park.prototype.findBySpecies = function (species) {
