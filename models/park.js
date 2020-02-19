@@ -1,4 +1,4 @@
-const Park = function (name, ticketPrice, parkDinosaurs){
+const Park = function (name, ticketPrice, parkDinosaurs = []){
   this.name = name;
   this.ticketPrice = ticketPrice;
   this.parkDinosaurs = parkDinosaurs;
@@ -23,11 +23,11 @@ Park.prototype.mostPopularDinosaur = function () {
 };
 
 Park.prototype.findBySpecies = function (species) {
-  speciesArray = [];
-  for (dinosaur of this.parkDinosaurs) {
+  let speciesArray = [];
+  for (let dinosaur of this.parkDinosaurs) {
   if (dinosaur.species === species) {
-      speciesArray.push(dinosaur)
-    }
+    speciesArray.push(dinosaur)
+  }
   return speciesArray
   };
 };
@@ -41,7 +41,7 @@ Park.prototype.totalGuestsPerDay = function () {
 };
 
 Park.prototype.totalGuestsPerYear = function () {
-  totalPerDay = this.totalGuestsPerDay();
+  let totalPerDay = this.totalGuestsPerDay();
   return totalPerYear = totalPerDay * 365;
 };
 
