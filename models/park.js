@@ -31,13 +31,13 @@ Park.prototype.mostPopularDinosaur = function () {
 };
 
 Park.prototype.findBySpecies = function (species) {
-  let speciesArray = [];
+  const speciesArray = [];
   for (let dinosaur of this.parkDinosaurs) {
   if (dinosaur.species === species) {
     speciesArray.push(dinosaur)
+    }
   }
-  return speciesArray
-  };
+  return speciesArray;
 };
 
 Park.prototype.totalGuestsPerDay = function () {
